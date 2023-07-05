@@ -1,0 +1,144 @@
+<ul class="flex justify-center items-center flex-wrap p-0 list-none">
+  <li *ngFor="let food of foods">
+    <a routerLink="/food/{{ food.id }}" class="flex flex-col text-red-500 h-[22.5rem] w-[18rem] m-1 border-r-1 overflow-hidden border-solid border-white rounded-xl hover:opacity-90 hover:scale-105">
+      <img [src]="food.imageUrl" [alt]="food.name" class="h-full w-full rounded-3xl object-cover"/>
+      <!-- content -->
+      <div class="relative py-3 px-1 mt-1 ">
+        <!-- name -->
+        <div class="font-semibold">
+          {{ food.name }}
+        </div>
+        <span class="text-lg absolute right-4 top-2 text-gray-500 "
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 {{ food.favorite ? 'fill-red-500 stroke-red-500' : 'fill-white' }}"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+            />
+          </svg>
+        </span>
+        <!-- stars -->
+        <div>
+          <!-- <star-rating
+                    [value]="food.stars" [totalstars]="5" [readonly]="true"
+                    checkedcolor="red" uncheckedcolor="black" size="22px"></star-rating> -->
+        </div>
+        <!-- product-item-footer -->
+        <div class="flex justify-between items-start">
+          <!-- origin -->
+          <div class="flex-grow mb-6">
+            <span class="text-sm mt-1 mr-1 py-0 px-2 text-gray-200 bg-gray-400 inline-block rounded-lg" *ngFor="let region of food.region">
+              {{ region }}
+            </span>
+          </div>
+          <!-- cook Time -->
+          <div class="text-right flex-3 text-sm">
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </span>
+            {{ food.cookTime }}
+          </div>
+          <!-- price -->
+          <div class="text-lg mt-5 text-gray-600 absolute bottom-0  p-1" >
+           {{food.price | currency}}
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>
+
+
+<!-- <ul class="flex justify-center items-center flex-wrap p-0 list-none">
+    <li *ngFor="let food of foods">
+      <a
+        routerLink="/food/{{ food.id }}"
+        class="flex flex-col text-red-500 h-[22.5rem] w-[18rem] m-1 border-r-1 overflow-hidden border-solid border-white rounded-xl hover:opacity-90 hover:scale-105"
+      >
+        <img
+          [src]="food.imageUrl"
+          [alt]="food.name"
+          class="h-full w-full rounded-3xl object-cover"
+        />
+        <div class="relative py-5 px-1 mt-1">
+          <div class="font-semibold">
+            {{ food.name }}
+          </div>
+          <span class="text-lg absolute right-4 top-5 text-gray-500"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 {{
+                food.favorite ? 'fill-red-500 stroke-red-500' : 'fill-white'
+              }}"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              />
+            </svg>
+          </span>
+          <div class="flex justify-between items-start">
+            <div class="flex-grow">
+              <span
+                class="text-sm mt-2 mr-1 py-0 px-2 text-gray-200 bg-gray-400 inline-block rounded-lg"
+                *ngFor="let region of food.region"
+              >
+                {{ region }}
+              </span>
+            </div>
+            <div
+              class="text-lg mt-5 text-gray-600 left-0 bg-white absolute bottom-0 rounded-2xl p-1"
+             
+            >
+              {{ food.price | currency }}
+            </div>
+          </div>
+          <div class="flex justify-end items-center mt-3">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </span>
+              <span class="ml-1">{{ food.cookTime }}</span>
+            </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+   -->
