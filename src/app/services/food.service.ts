@@ -17,4 +17,11 @@ export class FoodService {
       food.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
+
+  //get food by ID
+  getFoodById(foodId: string) {
+    const foundFood = this.getAll().find(food => food.id === foodId);
+    return foundFood ?? new Food();
+  }
+  
 }

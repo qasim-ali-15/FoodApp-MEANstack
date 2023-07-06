@@ -1,0 +1,16 @@
+<div class="flex justify-center mt-9 mb-6">
+  <input
+    #s
+    type="text"
+    placeholder="Enter food name.."
+    (keyup.enter)="search(s.value)"
+    [value]="searchTerm"
+    class="border-none h-12 rounded-tl-full rounded-bl-full w-[30rem] bg-gray-200 p-5 text-2xl font-bold outline-none"
+  />
+  <button
+    (click)="search(s.value)"
+    class="h-12 w-24 font-bold text-white bg-red-500 text-2xl rounded-tr-full rounded-br-full opacity-100 outline-none hover:opacity-90"
+  >
+    Search 
+  </button>
+</div>
