@@ -20,8 +20,8 @@ export class FoodService {
 
   //get food by ID
   getFoodById(foodId: string) {
-    const foundFood = this.getAll().find(food => food.id === foodId);
-    return foundFood ?? new Food();
+    return this.getAll().find(food => food.id === foodId) ?? new Food();
+    // return foundFood ?? new Food();
   }
   
 }
