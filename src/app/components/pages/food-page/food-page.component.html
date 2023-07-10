@@ -16,8 +16,8 @@
         <span class="text-3xl mt-5 p-1 mb-20">
           <span class="text-red-500 font-bold">Price: </span><span class="text-green-500 font-extrabold">{{food.price | currency}}</span>
         </span>
-        <div class="flex justify-center mt-2 bg-red-500 text-white p-2 w-[96] h-12 rounded-full hover:cursor-pointer hover:opacity-80">
-       <button>Add to Cart</button>
+        <div class="flex justify-center mt-2 bg-red-500 text-white p-2 w-[96] h-12 rounded-full hover:cursor-pointer hover:bg-red-600">
+       <button (click)="addToCart()">Add to Cart</button>
         </div>
       </div>
     </div>
