@@ -16,7 +16,6 @@ export class FoodService {
 
   //search food
   getAllFoodBySearchTerm(searchTerm: string) {
-    console.log("searchter",searchTerm,FOODS_BY_SEARCH_URL + searchTerm)
     return this.httpClient.get<Food[]>(FOODS_BY_SEARCH_URL + searchTerm);
   }
 

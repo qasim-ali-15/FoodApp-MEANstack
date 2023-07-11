@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
         this.api.getAllFoodBySearchTerm(params.searchTerm).subscribe(res=>{
           this.foods=res
         })
-        // console.log("Here search params: "+params.searchTerm);
       }
       else{
         foodObservable = api.getAll();
