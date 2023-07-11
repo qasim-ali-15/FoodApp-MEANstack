@@ -1,5 +1,5 @@
-<app-not-found [visible]="!food.id" notFoundMessage="Food not Found!" resetLinkText="Go back to Home"></app-not-found>
-<div *ngIf="food.id" class="flex m-20">
+<app-not-found [visible]="!food" notFoundMessage="Food not Found!" resetLinkText="Go back to Home"></app-not-found>
+<div *ngIf="food" class="flex m-20">
     <div class="flex-col w-1/2">
       <img class="w-full h-full rounded-3xl" src="{{food.imageUrl}}" alt="{{food.name}}">
     </div>

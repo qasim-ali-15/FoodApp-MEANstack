@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FoodService } from 'src/app/services/food.service';
 
 
 @Component({
@@ -10,10 +11,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchComponent implements OnInit{
 
   searchTerm = '';
-  constructor(activatedRoute:ActivatedRoute,private router:Router){
+  constructor(activatedRoute:ActivatedRoute,private router:Router,private api:FoodService){
     activatedRoute.params.subscribe((params)=>{
+      
       if(params.searchTerm){
         this.searchTerm = params.searchTerm;
+        console.log("Here search params: "+params.searchTerm);
+     
+
       }
     });
   }
@@ -24,6 +29,8 @@ export class SearchComponent implements OnInit{
   search(term:string){
     if(term){
       this.router.navigateByUrl('/search/'+term);
+  
     }
+  
   }
 }

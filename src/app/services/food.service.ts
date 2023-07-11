@@ -1,27 +1,28 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Food } from '../shared/models/food';
 import { sample_foods } from 'src/data';
+import { HttpClient } from '@angular/common/http';
+import { FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_URL } from '../shared/environment/urls';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FoodService {
-  constructor() {}
-  getAll(): Food[] {
-    return sample_foods;
+  constructor(private httpClient: HttpClient) {}
+  getAll(): Observable<Food[]> {
+    return this.httpClient.get<Food[]>(FOODS_URL);
   }
 
   //search food
   getAllFoodBySearchTerm(searchTerm: string) {
-    return this.getAll().filter((food) =>
-      food.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    console.log("searchter",searchTerm,FOODS_BY_SEARCH_URL + searchTerm)
+    return this.httpClient.get<Food[]>(FOODS_BY_SEARCH_URL + searchTerm);
   }
 
   //get food by ID
-  getFoodById(foodId: string) {
-    return this.getAll().find(food => food.id === foodId) ?? new Food();
+  getFoodById(foodId: string):Observable<Food> {
+    return this.httpClient.get<Food>(FOODS_BY_ID_URL + foodId);
     // return foundFood ?? new Food();
   }
-  
 }

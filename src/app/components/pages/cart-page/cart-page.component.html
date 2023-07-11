@@ -2,7 +2,7 @@
   title="My Cart"
   class="text-3xl justify-center items-center flex w-full font-bold"
 ></app-title>
-<app-not-found [visible]="!cart || !cart.items.length" notFoundMessage="Your Cart is Empty!" resetLinkText="Home"></app-not-found>
+<app-not-found [visible]="!cart || !cart.items.length" notFoundMessage="Your Cart is Empty!" resetLinkText="Go back"></app-not-found>
 <div *ngIf="cart && cart.items.length" class="flex flex-wrap mt-2 items-start px-5 ">
   <ul class="flex  justify-between flex-col list-none m-2 p-0 w-4/6 rounded-lg border border-gray-300">
     <li class="flex justify-between items-center flex-wrap p-2 border-b-2 border-gray-100 mx-2" *ngFor="let cartItem of cart.items">
