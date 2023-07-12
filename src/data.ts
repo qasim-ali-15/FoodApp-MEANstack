@@ -177,15 +177,4 @@ export const sample_foods: Food[] = [
     imageUrl: 'assets/food-16.jpg',
     tags: ['Middle Eastern', 'Dip', 'Lunch'],
   },
-  {
-    id: '17',
-    name: 'Falafel',
-    cookTime: '15-25',
-    price: 10,
-    favorite: true,
-    region: ['lebanon'],
-    stars: 4.9,
-    imageUrl: 'assets/food-17.jpg',
-    tags: ['Middle Eastern', 'Street Food', 'Lunch'],
-  },
 ];

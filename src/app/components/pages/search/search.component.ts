@@ -16,9 +16,6 @@ export class SearchComponent implements OnInit{
       
       if(params.searchTerm){
         this.searchTerm = params.searchTerm;
-        console.log("Here search params: "+params.searchTerm);
-     
-
       }
     });
   }
