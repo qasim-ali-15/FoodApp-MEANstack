@@ -1,23 +1,36 @@
 <app-search></app-search>
-<app-not-found [visible]="!foods || !foods.length" notFoundMessage="Nothing found!!" resetLinkText="Reset"></app-not-found>
+<app-not-found
+  [visible]="!foods || !foods.length"
+  notFoundMessage="Nothing found!!"
+  resetLinkText="Reset"
+></app-not-found>
 <ul class="flex justify-center items-center flex-wrap p-0 list-none">
   <li *ngFor="let food of foods">
-    <a routerLink="/food/{{ food.id }}" class="flex flex-col text-red-500 h-[22.5rem] w-[18rem] m-1 border-r-1 overflow-hidden border-solid border-white rounded-xl hover:opacity-90 hover:scale-105">
-      <img [src]="food.imageUrl" [alt]="food.name" class="h-full w-full rounded-3xl object-cover"/>
+    <a
+      routerLink="/food/{{ food.id }}"
+      class="flex flex-col text-red-500 h-[22.5rem] w-[18rem] m-1 border-r-1 overflow-hidden border-solid border-white rounded-xl hover:opacity-90 hover:scale-105"
+    >
+      <img
+        [src]="food.imageUrl"
+        [alt]="food.name"
+        class="h-full w-full rounded-3xl object-cover"
+      />
       <!-- content -->
-      <div class="relative py-3 px-1 mt-1 ">
+      <div class="relative py-3 px-1 mt-1">
         <!-- name -->
         <div class="font-semibold">
           {{ food.name }}
         </div>
-        <span class="text-lg absolute right-4 top-2 text-gray-500 "
+        <span class="text-lg absolute right-4 top-2 text-gray-500"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-6 h-6 {{ food.favorite ? 'fill-red-500 stroke-red-500' : 'fill-white' }}"
+            class="w-6 h-6 {{
+              food.favorite ? 'fill-red-500 stroke-red-500' : 'fill-white'
+            }}"
           >
             <path
               stroke-linecap="round"
@@ -36,7 +49,10 @@
         <div class="flex justify-between items-start">
           <!-- origin -->
           <div class="flex-grow mb-6">
-            <span class="text-sm mt-1 mr-1 py-0 px-2 text-gray-200 bg-gray-400 inline-block rounded-lg" *ngFor="let region of food.region">
+            <span
+              class="text-sm mt-1 mr-1 py-0 px-2 text-gray-200 bg-gray-400 inline-block rounded-lg"
+              *ngFor="let region of food.region"
+            >
               {{ region }}
             </span>
           </div>
@@ -61,15 +77,16 @@
             {{ food.cookTime }}
           </div>
           <!-- price -->
-          <div class="text-lg mt-5 text-gray-600 absolute bottom-0 p-1 font-extrabold" >
-           {{food.price | currency}}
+          <div
+            class="text-lg mt-5 text-gray-600 absolute bottom-0 p-1 font-extrabold"
+          >
+            {{ food.price | currency }}
           </div>
         </div>
       </div>
     </a>
   </li>
 </ul>
-
 
 <!-- <ul class="flex justify-center items-center flex-wrap p-0 list-none">
     <li *ngFor="let food of foods">

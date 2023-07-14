@@ -63,13 +63,13 @@ export class CartService {
     );
 
     const cartJson = JSON.stringify(this.cart);
-    localStorage.setItem('Cart',cartJson);
+    localStorage.setItem('Cart', cartJson);
     this.cartSubject.next(this.cart);
   }
 
-  //get data from local storage 
-  private getCartFromLocalStorage():Cart{
+  //get data from local storage
+  private getCartFromLocalStorage(): Cart {
     const cartJson = localStorage.getItem('Cart');
-    return cartJson?JSON.parse(cartJson):new Cart();
+    return cartJson ? JSON.parse(cartJson) : new Cart();
   }
 }

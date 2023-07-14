@@ -21,16 +21,16 @@ export class FoodPageComponent implements OnInit {
     // let foodObservable : Observable<Food>;
     activatedRoute.params.subscribe((params) => {
       if (params.id) {
-        api.getFoodById(params.id).subscribe(serverFoods=>{
+        api.getFoodById(params.id).subscribe((serverFoods) => {
           this.food = serverFoods;
-        })
+        });
         // foodObservable = api.getFoodById(params.id);
       }
     });
   }
 
   ngOnInit(): void {}
-  addToCart(){
+  addToCart() {
     this.cartService.addToCart(this.food);
     this.router.navigateByUrl('/cart-page');
   }

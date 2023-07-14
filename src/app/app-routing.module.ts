@@ -8,33 +8,33 @@ import { AboutComponent } from './components/pages/about/about.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent
+    path: '',
+    component: HomeComponent,
   },
   {
-    path:'search/:searchTerm',
-    component:HomeComponent
+    path: 'search/:searchTerm',
+    component: HomeComponent,
   },
   {
-    path:'food/:id',
-    component:FoodPageComponent
+    path: 'food/:id',
+    component: FoodPageComponent,
   },
   {
-    path:'cart-page',
-    component:CartPageComponent
+    path: 'cart-page',
+    component: CartPageComponent,
   },
   {
-    path:'login',
-    component:LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'about',
-    component:AboutComponent
-  }
+    path: 'about',
+    component: AboutComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

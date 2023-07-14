@@ -7,30 +7,26 @@ import { Food } from 'src/app/shared/models/food';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  foods:Food[] = [];
-  constructor(private api:FoodService, activatedRoute: ActivatedRoute){
-    let foodObservable : Observable<Food[]>;
-    activatedRoute.params.subscribe((params)=>{
-      if(params.searchTerm){
+  foods: Food[] = [];
+  constructor(private api: FoodService, activatedRoute: ActivatedRoute) {
+    let foodObservable: Observable<Food[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm) {
         // foodObservable = this.api.getAllFoodBySearchTerm(params.searchTerm)
-        this.api.getAllFoodBySearchTerm(params.searchTerm).subscribe(res=>{
-          this.foods=res
-        })
-      }
-      else{
+        this.api.getAllFoodBySearchTerm(params.searchTerm).subscribe((res) => {
+          this.foods = res;
+        });
+      } else {
         foodObservable = api.getAll();
-        foodObservable.subscribe((serverFoods)=>{
+        foodObservable.subscribe((serverFoods) => {
           this.foods = serverFoods;
-        })
+        });
       }
-    })
+    });
   }
 
-  ngOnInit(){
-  }
-
+  ngOnInit() {}
 }

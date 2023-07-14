@@ -5,21 +5,17 @@ import { Cart } from 'src/app/shared/models/cart';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit{
-  cart!:Cart;
-  constructor(private cartService:CartService){
-    this.cartService.getCartObservable().subscribe((cart)=>{
+export class HeaderComponent implements OnInit {
+  cart!: Cart;
+  constructor(private cartService: CartService) {
+    this.cartService.getCartObservable().subscribe((cart) => {
       this.cart = cart;
-    })
+    });
   }
 
-  ngOnInit(): void {
-      
-  }
+  ngOnInit(): void {}
 
-menuopen(){
-  
-}
+  menuopen() {}
 }
