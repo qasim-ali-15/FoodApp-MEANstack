@@ -5,11 +5,11 @@
     placeholder="Enter food name.."
     (keyup.enter)="search(s.value)"
     [value]="searchTerm"
-    class="border-none h-12 rounded-tl-full rounded-bl-full w-[30rem] bg-gray-200 p-5 text-xl font-semibold outline-none"
+    class="border-none h-12 max-[639px]:w-[15rem] rounded-tl-full rounded-bl-full w-[30rem] bg-gray-200 p-5 text-xl font-semibold outline-none"
   />
   <button
     (click)="search(s.value)"
-    class="h-12 w-24 font-semibold text-white bg-red-500 text-xl rounded-tr-full rounded-br-full opacity-100 outline-none hover:opacity-90"
+    class="h-12 w-24 max-[639px]:w-[12] font-semibold text-white bg-red-500 text-xl rounded-tr-full rounded-br-full opacity-100 outline-none hover:opacity-90"
   >
     Search
   </button>

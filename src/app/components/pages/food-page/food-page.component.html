@@ -3,18 +3,22 @@
   notFoundMessage="Food not Found!"
   resetLinkText="Go back to Home"
 ></app-not-found>
-<div *ngIf="food" class="flex m-20">
-  <div class="flex-col w-1/2">
+
+<div *ngIf="food" class="flex flex-col sm:flex-row m-10">
+  <!-- Image column -->
+  <div class="flex w-full sm:w-1/2">
     <img
       class="w-full h-full rounded-3xl"
       src="{{ food.imageUrl }}"
       alt="{{ food.name }}"
     />
   </div>
-  <div class="flex-col w-1/2">
-    <div class="flex flex-col ml-10">
-      <span class="font-bold text-4xl mb-10">{{ food.name }}</span>
-      <div class="flex mt-2 mb-10">
+
+  <!-- Details column -->
+  <div class="flex w-full sm:w-1/2 sm:ml-10">
+    <div class="flex flex-col">
+      <span class="font-bold text-4xl mb-5">{{ food.name }}</span>
+      <div class="flex flex-wrap mt-2 mb-5">
         <span
           class="text-lg mt-1 mr-1 py-0 px-2 text-gray-200 bg-gray-400 rounded-full"
           *ngFor="let region of food.region"
@@ -22,32 +26,28 @@
           {{ region }}
         </span>
       </div>
-      <span class="text-2xl text-gray-700 mt-2 mb-10">
+      <span class="text-2xl text-gray-700 mt-2 mb-5">
         Time to cook about
         <span class="font-bold">{{ food.cookTime }}</span> minutes
       </span>
-      <span class="text-3xl mt-5 p-1 mb-20">
+      <span class="text-3xl mt-5 p-1 mb-10">
         <span class="text-red-500 font-bold">Price: </span
-        ><span class="text-green-500 font-extrabold">{{
-          food.price | currency
-        }}</span>
+        ><span class="text-green-500 font-extrabold">{{ food.price | currency }}</span>
       </span>
-      <div
-        class="flex justify-center mt-2 bg-red-500 text-white p-2 w-[96] h-12 rounded-full hover:cursor-pointer hover:bg-red-600"
-      >
+      <div class="flex justify-center mt-2 bg-red-500 text-white p-2 w-60 sm:w-96 h-12 rounded-full hover:cursor-pointer hover:bg-red-600">
         <button (click)="addToCart()">Add to Cart</button>
       </div>
     </div>
   </div>
+
+  <!-- Favorite icon -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
-    class="w-10 h-10 {{
-      food.favorite ? 'fill-red-500 stroke-red-500' : 'fill-white'
-    }}"
+    class="w-10 h-10 mt-5 sm:mt-0 ml-auto sm:ml-0 {{ food.favorite ? 'fill-red-500 stroke-red-500' : 'fill-white' }}"
   >
     <path
       stroke-linecap="round"
