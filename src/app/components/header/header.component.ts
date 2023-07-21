@@ -15,7 +15,17 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+      // JavaScript to handle the navigation toggle on smaller screens
+const toggleButton = document.querySelector('[data-collapse-toggle="navbar-default"]');
+const navbar = document.querySelector('#navbar-default');
 
-  menuopen() {}
+toggleButton?.addEventListener('click', () => {
+  navbar?.classList.toggle('hidden'); // Toggle the "hidden" class on the navigation menu
+});
+  }
+
+
+
+ 
 }
