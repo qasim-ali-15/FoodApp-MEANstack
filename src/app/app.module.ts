@@ -41,7 +41,7 @@ import { OrderComponent } from './components/pages/order/order.component';
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 4000,
-      positionClass: 'toast-bottom-right',
+      positionClass: 'toast-top-center',
       newestOnTop: false,
     }),
   ],

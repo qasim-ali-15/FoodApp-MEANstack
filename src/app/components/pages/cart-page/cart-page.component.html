@@ -1,90 +1,108 @@
-<app-title
-  title="My Cart"
-  class="text-3xl justify-center items-center flex w-full font-bold"
-></app-title>
-<app-not-found
-  [visible]="!cart || !cart.items.length"
-  notFoundMessage="Your Cart is Empty!"
-  resetLinkText="Go back"
-></app-not-found>
-<div
-  *ngIf="cart && cart.items.length"
-  class="flex flex-wrap mt-2 items-start px-5"
->
-  <ul
-    class="flex justify-between flex-col list-none m-2 p-0 w-4/6 rounded-lg border border-gray-300"
-  >
-    <li
-      class="flex justify-between items-center flex-wrap p-2 border-b-2 border-gray-100 mx-2"
-      *ngFor="let cartItem of cart.items"
-    >
-      <div class="w-1/8">
-        <img
-          class="w-20 h-20 rounded-full object-cover mr-2"
-          [src]="cartItem.food.imageUrl"
-          [alt]="cartItem.food.name"
-        />
-      </div>
-      <div class="ml-2 w-1/5">
-        <a
-          routerLink="/food/{{ cartItem.food.id }}"
-          class="text-lg font-semibold hover:text-blue-500"
-        >
-          {{ cartItem.food.name }}
-        </a>
-      </div>
-      <div class="w-1/5">
-        <select
-          class="w-16 h-10 ml-auto outline-none border-none border-b border-gray-300 text-lg font-extralight"
-          #quantitySelect
-          [value]="cartItem.quantity"
-          (change)="changeQuantity(cartItem, quantitySelect.value)"
-        >
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-      <div class="text-lg font-semibold ml-2 w-1/5">
-        {{ cartItem.price | currency }}
-      </div>
-      <div class="w-1/5 justify-end">
-        <button
-          class="text-white bg-gray-500 text-sm font-semibold p-2 rounded-3xl opacity-80 hover:opacity-100 ml-2 items-end"
-          (click)="removeFromCart(cartItem)"
-        >
-          Remove
-        </button>
-      </div>
-    </li>
-  </ul>
-  <!-- checkout -->
-  <div
-    class="flex flex-col justify-between items-center h-80 w-96 rounded-2xl border border-gray-300 p-2 m-2"
-  >
+<div class="bg-gray-100">
+  <div class="container mx-auto py-8">
+    <h1 class="text-2xl font-bold mb-4">Shopping Cart</h1>
+    <app-not-found
+      [visible]="!cart || !cart.items.length"
+      notFoundMessage="Your Cart is Empty!"
+      resetLinkText="Go back"
+    ></app-not-found>
     <div
-      class="mt-10 flex flex-col justify-center items-start text-center flex-3"
+      *ngIf="cart && cart.items.length"
+      class="bg-white shadow overflow-hidden rounded-lg overflow-x-auto"
     >
-      <!-- foods-count -->
-      <div>
-        <span class="text-2xl">Total Items: </span>
-        <span class="text-2xl font-semibold">{{ cart.totalCount }}</span>
-      </div>
-      <!-- total-price -->
-      <div>
-        <span class="text-2xl">Total Price: </span>
-        <span class="text-2xl font-semibold">{{
-          cart.totalPrice | currency
-        }}</span>
-      </div>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Product
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Quantity
+            </th>
+            <th
+              scope="col"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Price
+            </th>
+            <th scope="col" class="relative px-6 py-3">
+              <span class="sr-only">Remove</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <!-- Sample cart items (Replace with your data) -->
+          <tr *ngFor="let cartItem of cart.items">
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-20 w-20">
+                  <img
+                    class="w-20 h-20 rounded-full object-cover"
+                    [src]="cartItem.food.imageUrl"
+                    [alt]="cartItem.food.name"
+                  />
+                </div>
+                <div class="ml-4">
+                  <a routerLink="/food/{{ cartItem.food.id }}" class="text-sm sm:text-lg font-medium text-gray-900">
+                    {{ cartItem.food.name }}
+                  </a>
+                  <div class="text-xs sm:text-sm text-gray-500">
+                    {{ cartItem.food.region }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                <select
+                  class="w-16 h-10 ml-auto outline-none border-none border-b border-gray-300 text-lg font-extralight"
+                  #quantitySelect
+                  [value]="cartItem.quantity"
+                  (change)="changeQuantity(cartItem, quantitySelect.value)"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm text-gray-900">
+                {{ cartItem.price | currency }}
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <button class="text-red-600 hover:scale-110" (click)="removeFromCart(cartItem)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <a
+    <div *ngIf="cart && cart.items.length" class="mt-8 flex justify-end text-xs sm:text-sm">
+      <span
+        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded mr-auto ml-1 sm:ml-0"
+      >
+      Total Price: 
+      {{
+        cart.totalPrice | currency
+      }}
+      </span>
+      <a
       routerLink="/order"
-      class="inline-block w-full p-4 text-center opacity-70 justify-self-center bg-red-500 text-white rounded-2xl hover:bg-red-600 hover:opacity-100"
-    >
-      Proceed to Checkout
-    </a>
+        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded mr-1 sm:mr-0"
+      >
+        Checkout
+      </a>
+    </div>
   </div>
 </div>
