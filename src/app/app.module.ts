@@ -17,6 +17,7 @@ import { ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './components/pages/about/about.component';
+import { OrderComponent } from './components/pages/order/order.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AboutComponent } from './components/pages/about/about.component';
     NotFoundComponent,
     LoginComponent,
     AboutComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
