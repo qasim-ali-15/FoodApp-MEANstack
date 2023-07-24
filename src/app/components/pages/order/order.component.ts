@@ -20,7 +20,7 @@ export class OrderComponent {
   ngOnInit(): void {}
 
   showToast() {
-    this.toastr.success('Hello, this is a success toast!', 'Success');
+    this.toastr.success('Your order has been placed successfully', 'Success');
   }
   submitShippingDetails() {
     // Implement your logic here to handle the shipping details.
