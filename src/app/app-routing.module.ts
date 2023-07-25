@@ -6,10 +6,15 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { LoginComponent } from './components/pages/login/login.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { OrderComponent } from './components/pages/order/order.component';
+import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: WelcomeComponent,
+  },
+  {
+    path: 'home',
     component: HomeComponent,
   },
   {

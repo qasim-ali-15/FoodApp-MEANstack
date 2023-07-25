@@ -18,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './components/pages/about/about.component';
 import { OrderComponent } from './components/pages/order/order.component';
+import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { OrderComponent } from './components/pages/order/order.component';
     LoginComponent,
     AboutComponent,
     OrderComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
