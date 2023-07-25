@@ -159,7 +159,7 @@ export const sample_foods: any[] = [
     cookTime: '15-25',
     price: 10,
     favorite: true,
-    region: ['india'],
+    region: ['india','pakistan'],
     stars: 4.7,
     imageUrl: 'assets/food-15.jpg',
     tags: ['Indian', 'Street Food', 'Lunch'],
