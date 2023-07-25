@@ -88,9 +88,9 @@
         </tbody>
       </table>
     </div>
-    <div *ngIf="cart && cart.items.length" class="mt-8 flex justify-end text-xs sm:text-sm">
+    <div *ngIf="cart && cart.items.length" class="mt-8 flex flex-col sm:flex-row text-center justify-center sm:justify-end text-xs sm:text-sm">
       <span
-        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded mr-auto ml-1 sm:ml-0"
+        class="bg-red-500 hover:bg-red-600 text-white mb-5 sm:mb-0 font-semibold px-4 py-2 rounded sm:mr-auto mx-5 sm:ml-0"
       >
       Total Price: 
       {{
@@ -99,7 +99,7 @@
       </span>
       <a
       routerLink="/order"
-        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded mr-1 sm:mr-0"
+        class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 sm:ml-auto rounded mx-5 sm:mr-0"
       >
         Checkout
       </a>
