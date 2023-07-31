@@ -2,9 +2,12 @@ import express from "express";
 import cors from "cors";
 import { sample_foods, sample_users } from "./data";
 import jwt from "jsonwebtoken";
+const bodyParser = require("body-parser");
 
 const app = express();
-// app.use(express.json);
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.use(
   cors({
@@ -37,7 +40,7 @@ app.get("/api/foods/:foodId",(req,res)=>{
 app.post("/api/users/login",(req,res)=>{
   const {email, password}=req.body;
   const user = sample_users.find(user=> user.email === email && user.password === password);
-  console.log("Heres='s",user);
+  console.log("Here's :",user);
 
   if(user){
     res.send(generateTokenResponse(user));
@@ -55,7 +58,8 @@ const generateTokenResponse = (user:any)=>{
     expiresIn:"30d"
   })
   user.token = token;
-  return user.token;
+  // console.log("token generated", user.token);
+  return token;
 }
 
 const port = 5000;
